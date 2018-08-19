@@ -1,24 +1,51 @@
-# README
+# Meal Prep Server
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Related Information
 
-Things you may want to cover:
+### Routes 
 
-* Ruby version
+### User Stories
 
-* System dependencies
+##### As an anonymous user I should be able to:
 
-* Configuration
+- View Recipes
+- View Recipe Details
+- View Ingredients
+- View Ingredient Details
+- Log in
+- Register
+- View About page
 
-* Database creation
+##### As a logged in user I should be able to:
 
-* Database initialization
+- View Recipes
+- View Recipe Details
+- Add Recipe
+- Update own Recipes
+- Delete own Recipes
+- View Ingredients
+- View Ingredient Detail
+- Add Ingredient
+- Add Recipe to Favorites
+- Log out
 
-* How to run the test suite
+##### As an admin I should be able to:
 
-* Services (job queues, cache servers, search engines, etc.)
+- View Recipes
+- View Recipe Details
+- Add Recipe
+- Update all Recipes
+- Delete all Recipes
+- View Ingredients
+- View Ingredient Detail
+- Add Ingredient
+- Update all Ingredients
+- Delete all Ingredient
+- Add Recipe to Favorites
+- Log out
 
-* Deployment instructions
+### Technologies Used
 
-* ...
+- Rails 5.2.1
+
+  
