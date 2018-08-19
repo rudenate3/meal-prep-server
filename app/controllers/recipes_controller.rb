@@ -1,5 +1,7 @@
 class RecipesController < OpenReadController
   before_action :set_recipe, only: [:show, :update, :destroy]
+ 
+  # TODO favorited should not be be editable, only incremented or decremented 
 
   # GET /recipes
   def index
@@ -27,7 +29,10 @@ class RecipesController < OpenReadController
 
   # PATCH/PUT /recipes/1
   def update
-    if @recipe.update(recipe_params)
+    authorized = (current_user.id == @recipe.user_id || current_user.admin)
+    if !authorized 
+      render status: :unauthorized
+    elsif @recipe.update(recipe_params)
       render json: @recipe
     else
       render json: @recipe.errors, status: :unprocessable_entity
@@ -36,7 +41,12 @@ class RecipesController < OpenReadController
 
   # DELETE /recipes/1
   def destroy
-    @recipe.destroy
+    authorized = (current_user.id == @recipe.user_id || current_user.admin)
+    if !authorized 
+      render status: :unauthorized
+    else
+      @recipe.destroy
+    end
   end
 
   private
