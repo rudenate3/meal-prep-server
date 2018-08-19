@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :quantities
   resources :ingredients
   resources :recipes
   mount_devise_token_auth_for 'User', at: 'auth', skip: [:Omniauth_callbacks]
