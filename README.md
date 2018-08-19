@@ -2,7 +2,7 @@
 
 ### Related Information
 
-### Routes 
+### Routes
 
 ### User Stories
 
@@ -41,11 +41,15 @@
 - Add Ingredient
 - Update all Ingredients
 - Delete all Ingredient
+- Add Quantity
+- Update all Quantities
+- Delete all Quantity
+- Add Tag
+- Update all Tags
+- Delete all Tag
 - Add Recipe to Favorites
 - Log out
 
 ### Technologies Used
 
 - Rails 5.2.1
-
-  
