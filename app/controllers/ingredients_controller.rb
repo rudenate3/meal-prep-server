@@ -26,7 +26,9 @@ class IngredientsController < OpenReadController
 
   # PATCH/PUT /ingredients/1
   def update
-    if @ingredient.update(ingredient_params)
+    if !current_user.admin
+      render status: :unauthorized
+    elsif @ingredient.update(ingredient_params)
       render json: @ingredient
     else
       render json: @ingredient.errors, status: :unprocessable_entity
@@ -35,7 +37,11 @@ class IngredientsController < OpenReadController
 
   # DELETE /ingredients/1
   def destroy
-    @ingredient.destroy
+    if !current_user.admin
+      render status: :unauthorized
+    else
+      @ingredient.destroy
+    end
   end
 
   private
