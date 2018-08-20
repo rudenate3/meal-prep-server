@@ -15,18 +15,24 @@ class TagsController < OpenReadController
 
   # POST /tags
   def create
-    @tag = Tag.new(tag_params)
-
-    if @tag.save
-      render json: @tag, status: :created, location: @tag
+    if !current_user.admin
+      render status: :unauthorized
     else
-      render json: @tag.errors, status: :unprocessable_entity
+      @tag = Tag.new(tag_params)
+
+      if @tag.save
+        render json: @tag, status: :created, location: @tag
+      else
+        render json: @tag.errors, status: :unprocessable_entity
+      end
     end
   end
 
   # PATCH/PUT /tags/1
   def update
-    if @tag.update(tag_params)
+    if !current_user.admin
+      render status: :unauthorized
+    elsif @tag.update(tag_params)
       render json: @tag
     else
       render json: @tag.errors, status: :unprocessable_entity
@@ -35,7 +41,11 @@ class TagsController < OpenReadController
 
   # DELETE /tags/1
   def destroy
-    @tag.destroy
+    if !current_user.admin
+      render status: :unauthorized
+    else
+      @tag.destroy
+    end
   end
 
   private

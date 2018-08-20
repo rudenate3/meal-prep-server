@@ -15,18 +15,24 @@ class QuantitiesController < OpenReadController
 
   # POST /quantities
   def create
-    @quantity = Quantity.new(quantity_params)
-
-    if @quantity.save
-      render json: @quantity, status: :created, location: @quantity
+    if !current_user.admin
+      render status: :unauthorized
     else
-      render json: @quantity.errors, status: :unprocessable_entity
+      @quantity = Quantity.new(quantity_params)
+
+      if @quantity.save
+        render json: @quantity, status: :created, location: @quantity
+      else
+        render json: @quantity.errors, status: :unprocessable_entity
+      end
     end
   end
 
   # PATCH/PUT /quantities/1
   def update
-    if @quantity.update(quantity_params)
+    if !current_user.admin
+      render status: :unauthorized
+    elsif @quantity.update(quantity_params)
       render json: @quantity
     else
       render json: @quantity.errors, status: :unprocessable_entity
@@ -35,7 +41,11 @@ class QuantitiesController < OpenReadController
 
   # DELETE /quantities/1
   def destroy
-    @quantity.destroy
+    if !current_user.admin
+      render status: :unauthorized
+    else
+      @quantity.destroy
+    end
   end
 
   private
