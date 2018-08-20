@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 2018_08_19_220333) do
   enable_extension "plpgsql"
 
   create_table "ingredients", force: :cascade do |t|
-    t.string "title"
-    t.string "description"
+    t.string "title", null: false
+    t.string "description", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "quantity_id"
@@ -25,8 +25,8 @@ ActiveRecord::Schema.define(version: 2018_08_19_220333) do
   end
 
   create_table "quantities", force: :cascade do |t|
-    t.string "title"
-    t.string "description"
+    t.string "title", null: false
+    t.string "description", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -40,10 +40,10 @@ ActiveRecord::Schema.define(version: 2018_08_19_220333) do
   end
 
   create_table "recipes", force: :cascade do |t|
-    t.string "title"
+    t.string "title", null: false
     t.bigint "user_id"
-    t.string "description"
-    t.integer "favorited"
+    t.string "description", null: false
+    t.integer "favorited", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_recipes_on_user_id"
@@ -55,8 +55,8 @@ ActiveRecord::Schema.define(version: 2018_08_19_220333) do
   end
 
   create_table "tags", force: :cascade do |t|
-    t.string "title"
-    t.string "description"
+    t.string "title", null: false
+    t.string "description", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

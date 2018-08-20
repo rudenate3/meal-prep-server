@@ -99,20 +99,17 @@ Recipe.create([
   {
     title: 'Ultimate Pasta',
     user_id: 1,
-    description: 'Everything',
-    favorited: 0
+    description: 'Everything'
   },
   {
     title: 'Vegetarian Pasta',
     user_id: 2,
-    description: 'Vegetarian Pasta',
-    favorited: 0
+    description: 'Vegetarian Pasta'
   },
   {
     title: 'Parmesean Pasta',
     user_id: 3,
-    description: 'Parmesean Pasta',
-    favorited: 0
+    description: 'Parmesean Pasta'
   }
 ])
 
