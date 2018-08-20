@@ -147,3 +147,11 @@ recipe3.ingredients  << Ingredient.find(3)
 recipe1.save
 recipe2.save
 recipe3.save
+
+userAdmin = User.find(1)
+
+userAdmin.favorites << Recipe.find(1)
+userAdmin.favorites << Recipe.find(2)
+userAdmin.favorites << Recipe.find(3)
+
+userAdmin.save
