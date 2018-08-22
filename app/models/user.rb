@@ -6,4 +6,5 @@ class User < ApplicationRecord
   include DeviseTokenAuth::Concerns::User
   has_many :Recipe
   has_many :favorites
+  has_many :comments
 end
