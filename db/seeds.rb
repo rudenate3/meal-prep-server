@@ -113,6 +113,33 @@ Recipe.create([
   }
 ])
 
+Favorite.create([
+  {
+    recipe_id: 1,
+    user_id: 1
+  },
+  {
+    recipe_id: 2,
+    user_id: 1
+  },
+  {
+    recipe_id: 3,
+    user_id: 1
+  },
+  {
+    recipe_id: 1,
+    user_id: 2
+  },
+  {
+    recipe_id: 3,
+    user_id: 2
+  },
+  {
+    recipe_id: 1,
+    user_id: 3
+  }
+])
+
 recipe1 = Recipe.find(1)
 recipe2 = Recipe.find(2)
 recipe3 = Recipe.find(3)
@@ -145,10 +172,20 @@ recipe1.save
 recipe2.save
 recipe3.save
 
-userAdmin = User.find(1)
-
-userAdmin.favorites << Recipe.find(1)
-userAdmin.favorites << Recipe.find(2)
-userAdmin.favorites << Recipe.find(3)
-
-userAdmin.save
+Comment.create([
+    {
+        recipe_id: 1,
+        user_id: 1,
+        content: 'My first post'
+    },
+    {
+        recipe_id: 1,
+        user_id: 2,
+        content: 'My first comment'
+    },
+    {
+        recipe_id: 1,
+        user_id: 3,
+        content: 'My first time commenting'
+    }
+  ])
