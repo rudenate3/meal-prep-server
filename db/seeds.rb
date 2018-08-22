@@ -171,3 +171,21 @@ recipe3.ingredients  << Ingredient.find(3)
 recipe1.save
 recipe2.save
 recipe3.save
+
+Comment.create([
+    {
+        recipe_id: 1,
+        user_id: 1,
+        content: 'My first post'
+    },
+    {
+        recipe_id: 1,
+        user_id: 2,
+        content: 'My first comment'
+    },
+    {
+        recipe_id: 1,
+        user_id: 3,
+        content: 'My first time commenting'
+    }
+  ])
