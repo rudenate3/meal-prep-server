@@ -7,7 +7,7 @@ class RecipesController < OpenReadController
   def index
     @recipes = Recipe.all
 
-    render json: @recipes
+    render json: @recipes, each_serializer: RecipeIndexSerializer
   end
 
   # GET /recipes/1
