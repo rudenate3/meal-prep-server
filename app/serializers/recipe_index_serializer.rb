@@ -1,3 +1,3 @@
 class RecipeIndexSerializer < ActiveModel::Serializer
-  attributes :id, :title, :author, :favorited
+  attributes :id, :title, :description, :tags, :author, :favorited
 end
