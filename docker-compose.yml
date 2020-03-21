@@ -1,0 +1,25 @@
+version: '3'
+services:
+  api:
+    build:
+      context: '.'
+      dockerfile: './api/Dockerfile'
+    depends_on:
+      - db
+    environment:
+      DB_USERNAME: root
+      DB_PASSWORD: password
+      DB_DATABASE: api
+      DB_PORT: 3306
+      DB_HOST: db
+      RAILS_ENV: development
+      RAILS_MAX_THREADS: 5
+    ports:
+      - '3000:3000'
+
+  db:
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_USERNAME: root
+      MYSQL_PASSWORD: password
+    image: mysql:5.7
