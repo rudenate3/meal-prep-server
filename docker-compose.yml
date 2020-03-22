@@ -16,6 +16,8 @@ services:
       RAILS_MAX_THREADS: 5
     ports:
       - '3000:3000'
+    volumes:
+      - ./api:/api
 
   db:
     environment:
