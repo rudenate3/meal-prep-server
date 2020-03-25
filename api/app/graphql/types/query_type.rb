@@ -4,7 +4,11 @@ module Types
     field :users, [Types::UserType], null: false
 
     def users
-      User.all
+      if context[:current_user]
+        User.all
+      else
+        raise GraphQL::ExecutionError, "Not authorized"
+      end
     end
 
     field :user, Types::UserType, null: false do
